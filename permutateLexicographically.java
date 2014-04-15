@@ -9,6 +9,10 @@ import java.util.Collections;
 import calculatePartition.calculatePartition;
 import convertToSequence.convertToSequence;
 
+/*
+	NOTE: Always compile with '-d .' 
+		And always run with <package-name>.<class-name> format
+*/
 public class permutateLexicographically{
 	private static final String EMPTY_STRING = "";
 	
