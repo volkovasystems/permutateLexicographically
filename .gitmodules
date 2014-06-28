@@ -1,6 +1,3 @@
-[submodule "calculatePartition"]
-	path = calculatePartition
-	url = https://github.com/volkovasystems/calculatePartition.git
 [submodule "convertToSequence"]
 	path = convertToSequence
 	url = https://github.com/volkovasystems/convertToSequence.git
