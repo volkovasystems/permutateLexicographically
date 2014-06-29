@@ -6,17 +6,14 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.Collections;
 
-import convertToSequence.convertToSequence;
+import static convertToSequence.convertToSequence.convertToSequence;
 
 /*
 	NOTE: Always compile with '-d .' 
 		And always run with <package-name>.<class-name> format
 */
 public class permutateLexicographically{
-	private static final String EMPTY_STRING = "";
-	
-	private static final String NUMBER_PATTERN = "^\\d+$";
-	private static final String RANGE_SEPARATOR = "-";
+	public static final String EMPTY_STRING = "";
 
 	public static void main( String... parameters ){
 		/*
@@ -43,11 +40,11 @@ public class permutateLexicographically{
 			return;
 		}
 		
-		if( sequenceList.length( ) ){
+		if( sequenceList.size( ) > 0 ){
 			Collection<String> sequenceResultList = sequenceList.values( );
 
 			for( String sequence:sequenceResultList ){
-				System.out.print( sequence );
+				System.out.println( sequence );
 			}	
 		}
 	}
@@ -56,11 +53,23 @@ public class permutateLexicographically{
 		throws Exception
 	{	
 		BigInteger startIndex = new BigInteger( startingIndex );
-		BigInteger endIndex = new BigInteger( endIndex );
-		BigInteger sequenceLength = null;
+		BigInteger endIndex = new BigInteger( endingIndex );
+		HashMap<BigInteger, String> sequenceList = new HashMap<>( );
 		
-		
+		if( endIndex.compareTo( startIndex ) == 1 ){
+			BigInteger currentIndex = new BigInteger( startIndex.toString( ) );
+			
 
-		return null;
+			do{
+				String sequence = convertToSequence( currentIndex.toString( ), dictionary, separator );
+				sequenceList.put( currentIndex, sequence );
+
+				currentIndex = currentIndex.add( BigInteger.ONE );
+			}while( currentIndex.compareTo( endIndex ) <= 0 );
+		}else{
+			throw new Exception( "ending index is not greater than starting index" );
+		}
+
+		return sequenceList;
 	}
 }
