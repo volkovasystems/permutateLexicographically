@@ -1,10 +1,11 @@
 package permutateLexicographically;
 
 import java.math.BigInteger;
-import java.util.HashMap;
 import java.util.Collection;
-import java.util.Map;
 import java.util.Collections;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Set;
 
 import static convertToSequence.convertToSequence.convertToSequence;
 
@@ -32,7 +33,7 @@ public class permutateLexicographically{
 			separator = parameters[ 3 ];
 		}
 
-		HashMap<BigInteger, String> sequenceList = null;
+		LinkedHashMap <BigInteger, String> sequenceList = null;
 		try{
 			sequenceList = permutateLexicographically( startingIndex, endingIndex, dictionary, separator );
 		}catch( Exception exception ){
@@ -49,12 +50,12 @@ public class permutateLexicographically{
 		}
 	}
 
-	public static final HashMap<BigInteger, String> permutateLexicographically( String startingIndex, String endingIndex, String dictionary, String separator )
+	public static final LinkedHashMap <BigInteger, String> permutateLexicographically( String startingIndex, String endingIndex, String dictionary, String separator )
 		throws Exception
 	{	
 		BigInteger startIndex = new BigInteger( startingIndex );
 		BigInteger endIndex = new BigInteger( endingIndex );
-		HashMap<BigInteger, String> sequenceList = new HashMap<>( );
+		LinkedHashMap <BigInteger, String> sequenceList = new LinkedHashMap<>( );
 		
 		if( endIndex.compareTo( startIndex ) == 1 ){
 			BigInteger currentIndex = new BigInteger( startIndex.toString( ) );
