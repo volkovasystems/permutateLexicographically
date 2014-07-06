@@ -1,18 +1,16 @@
 package permutateLexicographically;
 
 import java.math.BigInteger;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Set;
 
 import static convertToSequence.convertToSequence.convertToSequence;
-
 /*
 	NOTE: Always compile with '-d .' 
 		And always run with <package-name>.<class-name> format
 */
+
 public class permutateLexicographically{
 	public static final String EMPTY_STRING = "";
 
@@ -40,15 +38,25 @@ public class permutateLexicographically{
 			System.err.print( exception.getMessage( ) );
 			return;
 		}
-		
-		if( sequenceList.size( ) > 0 ){
-			Collection<String> sequenceResultList = sequenceList.values( );
+                //code for lexicographically sort all genereted strings irregardless of length
+//                Collection <String> sequenceResultList = sequenceList.values();
+//                List< String > results = new ArrayList< String >( sequenceResultList );
+//                Collections.sort(results);
+//                
+//                for( String sequence:results ){
+//                    System.out.println( sequence );
+//                }	
 
-			for( String sequence:sequenceResultList ){
-				System.out.println( sequence );
-			}	
-		}
-	}
+                //code for lexicographically sort all genereted strings with regards to length
+                
+                Set entrySet = sequenceList.entrySet();
+                Iterator iterate = entrySet.iterator();
+                
+                System.out.println("LinkedHashMap entries : ");
+                
+                while(iterate.hasNext())
+                    System.out.println(iterate.next());
+        }
 
 	public static final LinkedHashMap <BigInteger, String> permutateLexicographically( String startingIndex, String endingIndex, String dictionary, String separator )
 		throws Exception
@@ -63,7 +71,8 @@ public class permutateLexicographically{
 
 			do{
 				String sequence = convertToSequence( currentIndex.toString( ), dictionary, separator );
-				sequenceList.put( currentIndex, sequence );
+				//System.out.println(sequence);
+                                sequenceList.put( currentIndex, sequence );
 
 				currentIndex = currentIndex.add( BigInteger.ONE );
 			}while( currentIndex.compareTo( endIndex ) <= 0 );
