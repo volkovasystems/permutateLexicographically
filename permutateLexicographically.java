@@ -39,8 +39,12 @@ public class permutateLexicographically{
 			return;
 		}
 
-        String[ ] sequenceListArray = sequenceList.values( ).toArray( new String[ sequenceList.size( ) ] );
-        System.out.print( Arrays.toString( sequenceListArray ).replaceAll( "^\\[|\\]$", "" ) );
+        if( sequenceList.size( ) > 0 ){
+            String[ ] sequenceListArray = sequenceList.values( ).toArray( new String[ sequenceList.size( ) ] );
+            System.out.print( Arrays.toString( sequenceListArray ).replaceAll( "^\\[|\\]$", "" ) );
+        }else{
+            throw new Exception( "no permutation happened" );
+        }
 	}
 
 	public static final Map <BigInteger, String> permutateLexicographically( String startingIndex, String endingIndex, String dictionary, String separator )
