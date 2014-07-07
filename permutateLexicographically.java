@@ -39,12 +39,8 @@ public class permutateLexicographically{
 			return;
 		}
 
-        if( sequenceList.size( ) > 0 ){
-            String[ ] sequenceListArray = sequenceList.values( ).toArray( new String[ sequenceList.size( ) ] );
-            System.out.print( Arrays.toString( sequenceListArray ).replaceAll( "^\\[|\\]$", "" ) );
-        }else{
-            throw new Exception( "no permutation happened" );
-        }
+		String[ ] sequenceListArray = sequenceList.values( ).toArray( new String[ sequenceList.size( ) ] );
+		System.out.print( Arrays.toString( sequenceListArray ).replaceAll( "^\\[|\\]$", "" ) );
 	}
 
 	public static final Map <BigInteger, String> permutateLexicographically( String startingIndex, String endingIndex, String dictionary, String separator )
@@ -65,6 +61,10 @@ public class permutateLexicographically{
 			}while( currentIndex.compareTo( endIndex ) <= 0 );
 		}else{
 			throw new Exception( "ending index is not greater than starting index" );
+		}
+
+		if( sequenceList.size( ) == 0 ){
+			throw new Exception( "no permutation happened" );
 		}
 
 		return sequenceList;
